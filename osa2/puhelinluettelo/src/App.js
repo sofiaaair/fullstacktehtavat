@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import personService from './services/persons'
 import Name from'./components/Name'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
@@ -14,12 +14,12 @@ const App = () => {
   const [newFilter, setNewFilter] = useState('')
 
   useEffect (() => {
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response =>{
-        console.log("promise fullfilled")
-        setPersons(response.data)
+    personService
+      .getAll()
+      .then(response => {
+        setPersons(response)
       })
+
   }, [])
 
   const handleNameChange = (event) => setNewName(event.target.value)
@@ -38,8 +38,39 @@ const App = () => {
 
     return(
       people.map(item =>
-        < Name key = {item.name} name = {item.name} number = {item.number}/>)
+        <div key = {item.name}>
+        < Name key = {item.name} name = {item.name} number = {item.number}/>
+        <button onClick={() => {
+          confirmDeletion(item.id, item.name)
+        }}>delete</button>
+        </div>
     )
+    )
+  }
+
+
+  const confirmDeletion = (id, name) => {
+    if (window.confirm(`Do you really want to delete ${name} ?`)) {
+      handleDeletion(id)
+    }
+  }
+  
+  const handleDeletion = (id) => {
+    personService
+    .deletion(id)
+
+    setPersons(persons.filter(item => item.id !== id))
+  }
+
+  const replaceName = (nameObject) => {
+    const person = persons.find(person => person.name === nameObject.name)
+    personService
+    .replacement(nameObject, person.id)
+    .then(response => {
+      setPersons(persons.map(person => person.id !== response.id ? person : response))
+    })
+    setNewName('')
+    setNewNumber('')
   }
 
   const addName = (event) => {
@@ -53,12 +84,18 @@ const App = () => {
       item.name === newName)
     
     if (found !==undefined ) {
-      alert(`${newName} is already added to phonebook`)
+      if (window.confirm(`${nameObject.name} is already added to phonebook. Do you want to replace old number with new one?`)){
+        replaceName(nameObject)
+      }
     }
     else {
-      setPersons(persons.concat(nameObject))
-      setNewName('')
-      setNewNumber('')
+      personService
+        .create(nameObject)
+        .then(response =>{
+          setPersons(persons.concat(response))
+          setNewName('')
+          setNewNumber('')
+        })
     }
   }
   return (

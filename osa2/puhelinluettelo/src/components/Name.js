@@ -1,4 +1,4 @@
-const Name = ({name, number}) => {
+const Name = ({name, number, buttonFunction}) => {
     return(
       <p>
         {name} {number}
