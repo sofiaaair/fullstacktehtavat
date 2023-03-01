@@ -3,11 +3,14 @@ import personService from './services/persons'
 import Name from'./components/Name'
 import PersonForm from './components/PersonForm'
 import Filter from './components/Filter'
+import './index.css'
 
 
 
 
 const App = () => {
+  const [message, setMessage] = useState(null)
+  const [errormessage, setErrormessage] = useState(null)
   const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
@@ -21,6 +24,31 @@ const App = () => {
       })
 
   }, [])
+
+  const Notification = ({message}) => {
+    
+    if (message === null && errormessage === null) {
+      return null
+    }
+
+    
+
+    if (errormessage !== null && message === null){
+      return(
+      <div className = "error">
+        {errormessage}
+      </div>
+      )
+    }
+
+    return (
+      <div className = "notification">
+        {message}
+      </div>
+    )
+  }
+  
+
 
   const handleNameChange = (event) => setNewName(event.target.value)
   
@@ -51,16 +79,15 @@ const App = () => {
 
   const confirmDeletion = (id, name) => {
     if (window.confirm(`Do you really want to delete ${name} ?`)) {
-      handleDeletion(id)
+      personService
+      .deletion(id)
+  
+      setPersons(persons.filter(item => item.id !== id))
+      
     }
   }
   
-  const handleDeletion = (id) => {
-    personService
-    .deletion(id)
 
-    setPersons(persons.filter(item => item.id !== id))
-  }
 
   const replaceName = (nameObject) => {
     const person = persons.find(person => person.name === nameObject.name)
@@ -69,8 +96,16 @@ const App = () => {
     .then(response => {
       setPersons(persons.map(person => person.id !== response.id ? person : response))
     })
+    .catch(error => {
+      setErrormessage(`${nameObject.name} is already removed from phonebook`)
+      setTimeout(() => {
+        setErrormessage(null)
+      }, 5000)
+    })
+    
     setNewName('')
     setNewNumber('')
+    setPersons(persons.filter(n => n.id !== person.id))
   }
 
   const addName = (event) => {
@@ -96,11 +131,16 @@ const App = () => {
           setNewName('')
           setNewNumber('')
         })
+        setMessage(`Added ${nameObject.name}`)
+        setTimeout(() => {
+          setMessage(null)
+        },5000 )
     }
   }
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message = {message}/>
       <Filter filter = {newFilter} change = {handleFilterChange}/>
       <h2>Add a new name</h2>
       {<PersonForm submitValue={addName} 
