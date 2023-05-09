@@ -1,0 +1,99 @@
+{
+  "anecdotes": [
+    {
+      "content": "If it hurts, do it more often",
+      "votes": 2,
+      "id": "47145"
+    },
+    {
+      "content": "Adding manpower to a late software project makes it later!",
+      "votes": 5,
+      "id": "21149"
+    },
+    {
+      "content": "The first 90 percent of the code accounts for the first 10 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
+      "votes": 1,
+      "id": "69581"
+    },
+    {
+      "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      "id": "36975",
+      "votes": 0
+    },
+    {
+      "content": "Premature optimization is the root of all evil.",
+      "votes": 3,
+      "id": "25170"
+    },
+    {
+      "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+      "id": "98312",
+      "votes": 0
+    },
+    {
+      "content": "A friend to everyone is a friend to no one",
+      "votes": 1,
+      "id": "QnLH0Ew"
+    },
+    {
+      "content": "A friend to everyone is a friend to no one",
+      "votes": 0,
+      "id": "2Tgfr3R"
+    },
+    {
+      "content": "A rolling stone gathers no moss",
+      "votes": 0,
+      "id": "mskoKoT"
+    },
+    {
+      "content": "Hardest part is to start",
+      "votes": 0,
+      "id": "esX-kee"
+    },
+    {
+      "content": "Big fish eat little fish",
+      "votes": 0,
+      "id": "pgMOqvM"
+    },
+    {
+      "content": "Bad news travels fast",
+      "votes": 0,
+      "id": "kEcwrbn"
+    },
+    {
+      "content": "Bad news travels fast",
+      "votes": 1,
+      "id": "XryOyu0"
+    },
+    {
+      "content": "cold hands, warm heart",
+      "votes": 2,
+      "id": "vA_FTGO"
+    },
+    {
+      "content": "Do not cry over spilled milk",
+      "votes": 0,
+      "id": "t6ukVdf"
+    },
+    {
+      "content": "cold hands, warm heart",
+      "votes": 0,
+      "id": "kUkBwgL"
+    },
+    {
+      "content": "easier said than done",
+      "votes": 0,
+      "id": "AZ00FLx"
+    },
+    {
+      "content": "every picture tells a story",
+      "votes": 0,
+      "id": "6A_8F_d"
+    },
+    {
+      "content": "hourses for courses",
+      "votes": 0,
+      "id": "zvsmLb7"
+    }
+  ]
+}
