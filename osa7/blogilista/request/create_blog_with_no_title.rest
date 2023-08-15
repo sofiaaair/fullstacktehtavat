@@ -1,0 +1,8 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "author":"Pete Puuhanen",
+    "url": "petenpyoravinkit.fi",
+    "likes": 500
+}

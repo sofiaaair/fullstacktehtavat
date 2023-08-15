@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikx1cHVBbiIsImlkIjoiNjQzNmJhNGMwZDVhMmEyOTAwYmIyNGNhIiwiaWF0IjoxNjgxMzA4MjU0fQ.OA_joJhZEvudQNbMoQb38QtT01vkrEg7NrtSWWvIXpk
+
+{
+    "title": "Juoksukuntoon",
+    "author":"Ville Valmentaja",
+    "url": "lenkkipoluille.fi",
+    "likes": 563
+}

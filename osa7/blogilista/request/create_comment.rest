@@ -1,0 +1,5 @@
+POST http://localhost:3003/api/blogs/64d908993bcd7bcdc048163b/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikx1cHVBbiIsImlkIjoiNjQzNmJhNGMwZDVhMmEyOTAwYmIyNGNhIiwiaWF0IjoxNjkxOTQ1MzI1fQ.2QNyJR7wEPFXplTDSjvZx82Bo-doMJr0SM8cv2i28qw
+
+{ "comment": "This blog is not for me"}

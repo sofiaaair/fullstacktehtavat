@@ -1,0 +1,10 @@
+PUT http://localhost:3003/api/blogs/642ac626597cc64afca60773
+Content-Type: application/json
+
+{
+"title": "Sijoittajan käsikirja",
+"author": "Anna Nakkila",
+"url": "huoletonhuominen.blogspot.fi",
+"likes": 100
+
+}

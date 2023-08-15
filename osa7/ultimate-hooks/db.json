@@ -1,0 +1,70 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "custom hooks are awesome"
+    },
+    {
+      "id": 2,
+      "content": "best feature ever <3"
+    },
+    {
+      "content": "on mukavaa",
+      "id": 3
+    },
+    {
+      "content": "Hauska juttu",
+      "id": 4
+    },
+    {
+      "content": "Tänä toimii",
+      "id": 5
+    },
+    {
+      "content": "Toimiiko vielä",
+      "id": 6
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "Matti Luukkainen",
+      "number": "040-12344565"
+    },
+    {
+      "id": 2,
+      "name": "Tarja Halonen",
+      "number": "040-2223334"
+    },
+    {
+      "name": "meikä",
+      "number": "987-344323432",
+      "id": 3
+    },
+    {
+      "name": "olli ",
+      "number": "453-3490933",
+      "id": 4
+    },
+    {
+      "name": "eero",
+      "number": "432-2334-3234",
+      "id": 5
+    },
+    {
+      "name": "tiina",
+      "number": "8439432344",
+      "id": 6
+    },
+    {
+      "name": "Olli Orava",
+      "number": "456-546-54566",
+      "id": 7
+    },
+    {
+      "name": "Tiila Testinen",
+      "number": "034-456-5344",
+      "id": 8
+    }
+  ]
+}
