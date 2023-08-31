@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Blog from './Blog'
 
-
 describe('<Blog/>', () => {
   // eslint-disable-next-line no-unused-vars
   let container
@@ -12,7 +11,6 @@ describe('<Blog/>', () => {
   const removeMock = jest.fn()
 
   beforeEach(() => {
-
     const user = 'Kalle Kayttaja'
 
     const blog = {
@@ -20,16 +18,19 @@ describe('<Blog/>', () => {
       author: 'Mimmi M',
       url: 'https://mimminkeittio.vuodatus.net',
       likes: 0,
-      user:  {
-        username:'kayttaja',
-        name:'Kalle Kayttaja'
-      }
+      user: {
+        username: 'kayttaja',
+        name: 'Kalle Kayttaja',
+      },
     }
 
-
-
     container = render(
-      <Blog blog={blog} user={user} updateBlog={updateMock} removeBlog={removeMock}/>
+      <Blog
+        blog={blog}
+        user={user}
+        updateBlog={updateMock}
+        removeBlog={removeMock}
+      />,
     ).container
   })
 
@@ -37,7 +38,7 @@ describe('<Blog/>', () => {
     screen.getByText('Mimmin keittiö')
   })
 
-  test('Shows detailed information when pressing button', async() => {
+  test('Shows detailed information when pressing button', async () => {
     const userevent = userEvent.setup()
     const button = screen.getByText('show')
     await userevent.click(button)
@@ -47,10 +48,9 @@ describe('<Blog/>', () => {
     screen.getByText('0')
     screen.getByText('Mimmi M')
     screen.getByText('Kalle Kayttaja')
-
   })
 
-  test('Two calls are made when the button is pressed twice', async() => {
+  test('Two calls are made when the button is pressed twice', async () => {
     const userevent = userEvent.setup()
     const showButton = screen.getByText('show')
     await userevent.click(showButton)
@@ -61,6 +61,4 @@ describe('<Blog/>', () => {
 
     expect(updateMock.mock.calls).toHaveLength(2)
   })
-
 })
-
